@@ -36,6 +36,11 @@
             this.game.scale.setScreenSize(true);
             this.game.scale.refresh();
 
+            // damos el foco (hack iOS8)
+            this.game.canvas.setAttribute("tabindex", "0");
+            this.game.canvas.focus();
+
+            // iniciamos el preloader
             this.game.state.start('preloader', true, false);
         }
     });
