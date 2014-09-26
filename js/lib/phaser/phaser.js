@@ -1458,8 +1458,8 @@ PIXI.Sprite = function(texture)
     /**
      * The anchor sets the origin point of the texture.
      * The default is 0,0 this means the texture's origin is the top left
-     * Setting than anchor to 0.5,0.5 means the sprite origin is centred
-     * Setting the anchor to 1,1 would mean the sprite origin points will be the bottom right corner
+     * Setting than anchor to 0.5,0.5 means the textures origin is centred
+     * Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
      *
      * @property anchor
      * @type Point
@@ -5263,7 +5263,7 @@ PIXI.WebGLRenderer.prototype.render = function(stage)
         this.__stage = stage;
     }
 
-    // update any sprite this includes uvs and uploading them to the gpu
+    // update any textures this includes uvs and uploading them to the gpu
     PIXI.WebGLRenderer.updateTextures();
 
     // update the scene graph
@@ -5381,7 +5381,7 @@ PIXI.WebGLRenderer.prototype.renderDisplayObject = function(displayObject, proje
 };
 
 /**
- * Updates the sprite loaded into this webgl renderer
+ * Updates the textures loaded into this webgl renderer
  *
  * @static
  * @method updateTextures
@@ -6225,7 +6225,7 @@ PIXI.WebGLSpriteBatch = function(gl)
     this.vertSize = 6;
 
     /**
-     * The number of sprite in the SpriteBatch before it flushes
+     * The number of images in the SpriteBatch before it flushes
      * @property size
      * @type Number
      */
@@ -6467,7 +6467,7 @@ PIXI.WebGLSpriteBatch.prototype.renderTilingSprite = function(tilingSprite)
         this.currentBaseTexture = texture.baseTexture;
     }
 
-     // set the sprite uvs temporarily
+     // set the textures uvs temporarily
     // TODO create a separate texture so that we can tile part of a texture
 
     if(!tilingSprite._uvs)tilingSprite._uvs = new PIXI.TextureUvs();
@@ -7248,7 +7248,7 @@ PIXI.WebGLFilterManager.prototype.popFilter = function()
             //filterPass.applyFilterPass(filterArea.width, filterArea.height);
             this.applyFilterPass(filterPass, filterArea, filterArea.width, filterArea.height);
 
-            // swap the sprite..
+            // swap the textures..
             var temp = inputTexture;
             inputTexture = outputTexture;
             outputTexture = temp;
@@ -7498,7 +7498,7 @@ PIXI.WebGLFilterManager.prototype.destroy = function()
     this.offsetX = 0;
     this.offsetY = 0;
 
-    // destroy sprite
+    // destroy textures
     for (var i = 0; i < this.texturePool.length; i++) {
         this.texturePool[i].destroy();
     }
@@ -8078,7 +8078,7 @@ PIXI.CanvasRenderer.prototype.constructor = PIXI.CanvasRenderer;
  */
 PIXI.CanvasRenderer.prototype.render = function(stage)
 {
-    // update sprite if need be
+    // update textures if need be
     PIXI.texturesToUpdate.length = 0;
     PIXI.texturesToDestroy.length = 0;
 
@@ -10483,7 +10483,7 @@ PIXI.texturesToDestroy = [];
 PIXI.BaseTextureCacheIdGenerator = 0;
 
 /**
- * A texture stores the information that represents an image. All sprite have a base texture
+ * A texture stores the information that represents an image. All textures have a base texture
  *
  * @class BaseTexture
  * @uses EventTarget
@@ -11238,7 +11238,7 @@ PIXI.RenderTexture.prototype.renderWebGL = function(displayObject, position, cle
         children[i].updateTransform();
     }
 
-    // update the sprite!
+    // update the textures!
     PIXI.WebGLRenderer.updateTextures();
 
     this.renderer.spriteBatch.dirty = true;
@@ -15763,7 +15763,7 @@ Phaser.State = function () {
     this.camera = null;
 
     /**
-    * @property {Phaser.Cache} cache - A reference to the game cache which contains any loaded or generated assets, such as sprite, sound and more.
+    * @property {Phaser.Cache} cache - A reference to the game cache which contains any loaded or generated assets, such as images, sound and more.
     */
     this.cache = null;
 
@@ -15932,7 +15932,7 @@ Phaser.State.prototype.constructor = Phaser.State;
 */
 
 /**
-* The State Manager is responsible for loading, setting up and switching game state.
+* The State Manager is responsible for loading, setting up and switching game states.
 *
 * @class Phaser.StateManager
 * @constructor
@@ -15947,7 +15947,7 @@ Phaser.StateManager = function (game, pendingState) {
     this.game = game;
 
     /**
-    * @property {Object} state - The object containing Phaser.States.
+    * @property {Object} states - The object containing Phaser.States.
     */
     this.states = {};
 
@@ -18459,7 +18459,7 @@ Object.defineProperty(Phaser.Stage.prototype, "backgroundColor", {
 });
 
 /**
-* Enable or disable texture smoothing for all objects on this Stage. Only works for bitmap/image sprite. Smoothing is enabled by default.
+* Enable or disable texture smoothing for all objects on this Stage. Only works for bitmap/image textures. Smoothing is enabled by default.
 *
 * @name Phaser.Stage#smoothed
 * @property {boolean} smoothed - Set to true to smooth all sprites rendered on this Stage, or false to disable smoothing (great for pixel art)
@@ -22191,7 +22191,7 @@ Object.defineProperty(Phaser.ScaleManager.prototype, "isLandscape", {
 * @param {string|HTMLElement} [parent=''] - The DOM element into which this games canvas will be injected. Either a DOM ID (string) or the element itself.
 * @param {object} [state=null] - The default state object. A object consisting of Phaser.State functions (preload, create, update, render) or null.
 * @param {boolean} [transparent=false] - Use a transparent canvas background or not.
-* @param  {boolean} [antialias=true] - Draw all image sprite anti-aliased or not. The default is for smooth sprite, but disable if your game features pixel art.
+* @param  {boolean} [antialias=true] - Draw all image textures anti-aliased or not. The default is for smooth textures, but disable if your game features pixel art.
 * @param {object} [physicsConfig=null] - A physics configuration object to pass to the Physics world on creation.
 */
 Phaser.Game = function (width, height, renderer, parent, state, transparent, antialias, physicsConfig) {
@@ -22236,7 +22236,7 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     this.transparent = false;
 
     /**
-    * @property {boolean} antialias - Anti-alias graphics. By default scaled sprite are smoothed in Canvas and WebGL, set anti-alias to false to disable this globally.
+    * @property {boolean} antialias - Anti-alias graphics. By default scaled images are smoothed in Canvas and WebGL, set anti-alias to false to disable this globally.
     * @default
     */
     this.antialias = true;
@@ -23579,7 +23579,7 @@ Phaser.Input.prototype = {
     },
 
     /**
-    * Reset all of the Pointers and Input state. The optional `hard` parameter will reset any events or callbacks that may be bound.
+    * Reset all of the Pointers and Input states. The optional `hard` parameter will reset any events or callbacks that may be bound.
     * Input.reset is called automatically during a State change or if a game loses focus / visibility. If you wish to control the reset
     * directly yourself then set InputManager.resetLocked to `true`.
     *
@@ -30201,7 +30201,7 @@ Phaser.GameObjectFactory.prototype = {
     * A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
     * If you need variable width character support then use a BitmapText object instead. The main difference between a RetroFont and a BitmapText
     * is that a RetroFont creates a single texture that you can apply to a game object, where-as a BitmapText creates one Sprite object per letter of text.
-    * The texture can be asssigned or one or multiple sprite/sprites, but note that the text the RetroFont uses will be shared across them all,
+    * The texture can be asssigned or one or multiple images/sprites, but note that the text the RetroFont uses will be shared across them all,
     * i.e. if you need each Image to have different text in it, then you need to create multiple RetroFont objects.
     *
     * @method Phaser.GameObjectFactory#retroFont
@@ -30264,7 +30264,7 @@ Phaser.GameObjectFactory.prototype = {
     },
 
     /**
-    * A dynamic initially blank canvas to which sprite can be drawn.
+    * A dynamic initially blank canvas to which images can be drawn.
     *
     * @method Phaser.GameObjectFactory#renderTexture
     * @param {number} [width=100] - the width of the RenderTexture.
@@ -30608,7 +30608,7 @@ Phaser.GameObjectCreator.prototype = {
     * A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
     * If you need variable width character support then use a BitmapText object instead. The main difference between a RetroFont and a BitmapText
     * is that a RetroFont creates a single texture that you can apply to a game object, where-as a BitmapText creates one Sprite object per letter of text.
-    * The texture can be asssigned or one or multiple sprite/sprites, but note that the text the RetroFont uses will be shared across them all,
+    * The texture can be asssigned or one or multiple images/sprites, but note that the text the RetroFont uses will be shared across them all,
     * i.e. if you need each Image to have different text in it, then you need to create multiple RetroFont objects.
     *
     * @method Phaser.GameObjectCreator#retroFont
@@ -30667,7 +30667,7 @@ Phaser.GameObjectCreator.prototype = {
     },
 
     /**
-    * A dynamic initially blank canvas to which sprite can be drawn.
+    * A dynamic initially blank canvas to which images can be drawn.
     *
     * @method Phaser.GameObjectCreator#renderTexture
     * @param {number} [width=100] - the width of the RenderTexture.
@@ -33452,7 +33452,7 @@ Object.defineProperty(Phaser.Sprite.prototype, "fixedToCamera", {
 });
 
 /**
-* Enable or disable texture smoothing for this Sprite. Only works for bitmap/image sprite. Smoothing is enabled by default.
+* Enable or disable texture smoothing for this Sprite. Only works for bitmap/image textures. Smoothing is enabled by default.
 *
 * @name Phaser.Sprite#smoothed
 * @property {boolean} smoothed - Set to true to smooth the texture of this Sprite, or false to disable smoothing (great for pixel art)
@@ -34432,7 +34432,7 @@ Object.defineProperty(Phaser.Image.prototype, "fixedToCamera", {
 });
 
 /**
-* Enable or disable texture smoothing for this Image. Only works for bitmap/image sprite. Smoothing is enabled by default.
+* Enable or disable texture smoothing for this Image. Only works for bitmap/image textures. Smoothing is enabled by default.
 *
 * @name Phaser.Image#smoothed
 * @property {boolean} smoothed - Set to true to smooth the texture of this Image, or false to disable smoothing (great for pixel art)
@@ -37527,14 +37527,14 @@ Object.defineProperty(Phaser.BitmapText.prototype, "destroyPhase", {
 /**
 * @class Phaser.Button
 *
-* @classdesc Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically. The four state a Button responds to are:
+* @classdesc Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically. The four states a Button responds to are:
 *
 * * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
 * * 'Out' - when the Pointer that was previously over the Button moves out of it.
 * * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
 * * 'Up' - when the Pointer that was pressed down on the Button is released again.
 *
-* You can set a unique texture frame and Sound for any of these state.
+* You can set a unique texture frame and Sound for any of these states.
 *
 * @constructor
 * @extends Phaser.Image
@@ -37751,7 +37751,7 @@ Phaser.Button.prototype.clearFrames = function () {
 };
 
 /**
-* Used to manually set the frames that will be used for the different state of the Button.
+* Used to manually set the frames that will be used for the different states of the Button.
 *
 * @method Phaser.Button.prototype.setFrames
 * @param {string|number} [overFrame] - This is the frame or frameName that will be set when this button is in an over state. Give either a number to use a frame ID or a string for a frame name.
@@ -38563,7 +38563,7 @@ Object.defineProperty(Phaser.Graphics.prototype, "destroyPhase", {
 
 /**
 * A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
-* render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating sprite at run-time.
+* render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 * 
 * @class Phaser.RenderTexture
 * @constructor
@@ -47189,7 +47189,7 @@ Phaser.Animation.prototype = {
 
     /**
     * Called internally when the animation finishes playback.
-    * Sets the isPlaying and isFinished state and dispatches the onAnimationComplete event if it exists on the parent and local onComplete event.
+    * Sets the isPlaying and isFinished states and dispatches the onAnimationComplete event if it exists on the parent and local onComplete event.
     *
     * @method Phaser.Animation#complete
     */
@@ -48213,7 +48213,7 @@ Phaser.AnimationParser = {
 * Phaser.Cache constructor.
 *
 * @class Phaser.Cache
-* @classdesc A game only has one instance of a Cache and it is used to store all externally loaded assets such as sprite, sounds and data files as a result of Loader calls. Cached items use string based keys for look-up.
+* @classdesc A game only has one instance of a Cache and it is used to store all externally loaded assets such as images, sounds and data files as a result of Loader calls. Cached items use string based keys for look-up.
 * @constructor
 * @param {Phaser.Game} game - A reference to the currently running game.
 */
@@ -49638,7 +49638,7 @@ Phaser.Loader = function (game) {
     this.preloadSprite = null;
 
     /**
-    * @property {boolean|string} crossOrigin - The crossOrigin value applied to loaded sprite. Very often this needs to be set to 'anonymous'.
+    * @property {boolean|string} crossOrigin - The crossOrigin value applied to loaded images. Very often this needs to be set to 'anonymous'.
     * @default
     */
     this.crossOrigin = false;
@@ -59025,7 +59025,7 @@ Phaser.Tilemap = function (game, key, tileWidth, tileHeight, width, height) {
     this.collision = data.collision;
 
     /**
-    * @property {array} sprite - An array of Tiled Image Layers.
+    * @property {array} images - An array of Tiled Image Layers.
     */
     this.images = data.images;
 
@@ -61707,7 +61707,7 @@ Phaser.TilemapParser = {
             return null;
         }
 
-        //  Map data will consist of: layers, objects, sprite, tilesets, sizes
+        //  Map data will consist of: layers, objects, images, tilesets, sizes
         var map = {};
 
         map.width = json.width;
