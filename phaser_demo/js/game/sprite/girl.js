@@ -23,10 +23,12 @@
 
         update: function () {
             // obtenemos el delta de tiempo
-            var dt = this.game.time.elapsed;
+            // var dt = this.game.time.elapsed;
+            // calculamos animacion de la chica
+            // this._animAcumulator += dt * (1 / 128); // framerate independent!
 
             // calculamos animacion de la chica
-            this._animAcumulator += dt * (1 / 128);
+            this._animAcumulator += 1/8;
 
             // nuevas posiciones
             this.x = 160 + Math.sin(this._animAcumulator / 10) * 150;
