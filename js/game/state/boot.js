@@ -38,7 +38,10 @@
 
             // damos el foco (hack iOS8)
             this.game.canvas.setAttribute("tabindex", "0");
-            document.querySelector("#game>canvas").focus();
+            document.getElementById("game").click();
+
+
+            //document.querySelector("#game>canvas").focus();
 
 
             //this.game.canvas.focus();
