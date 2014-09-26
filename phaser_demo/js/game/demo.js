@@ -15,11 +15,11 @@
 
         initialize: function () {
             this.$super(800, 600, this.isMobileSafari() ? Phaser.CANVAS : Phaser.AUTO, "game", null);
-            alert(this.isMobileSafari() ? "en ios safari" : "otro navegador");
 
             this.state.add("boot", Demo.State.Boot, false);
             this.state.add("preloader", Demo.State.Preloader, false);
             this.state.add("main", Demo.State.Main, false);
+
             this.state.start("boot");
         },
 
