@@ -15,7 +15,7 @@
         $extends: Phaser.State,
 
         preload: function () {
-            this.load.image('preloadBar', 'asset/sprite/preload_bar.png');
+            this.load.image("preloadBar", "asset/sprite/preload_bar.png");
         },
 
         create: function () {
@@ -23,7 +23,7 @@
             this.input.maxPointers = 1;
 
             // Phaser will automatically pause if the browser tab the game is in loses focus. You can disable that here:
-            this.stage.disableVisibilityChange = false;
+            this.stage.disableVisibilityChange = true;
 
             // This tells the game to resize the renderer to match the game dimensions (i.e. 100% browser width / height)
             this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -37,7 +37,7 @@
             this.game.scale.refresh();
 
             // iniciamos el preloader
-            this.game.state.start('preloader', true, false);
+            this.game.state.start("preloader", true, false);
         }
     });
 
