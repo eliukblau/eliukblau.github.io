@@ -14,7 +14,7 @@
         $extends: Phaser.Game,
 
         initialize: function () {
-            this.$super(800, 600, Phaser.AUTO, "game", null);
+            this.$super(800, 600, Phaser.WEBGL, "game", null);
 
             this.state.add("boot", Demo.State.Boot, false);
             this.state.add("preloader", Demo.State.Preloader, false);
