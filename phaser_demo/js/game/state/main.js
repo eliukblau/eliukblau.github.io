@@ -15,6 +15,7 @@
         $extends: Phaser.State,
 
         _backgroundGroup: null,
+        _logosGroup: null,
         _cloudGroup: null,
         _girlGroup: null,
 
@@ -23,16 +24,19 @@
             music.play();
 
             this._backgroundGroup = this.add.group();
+            this._logosGroup = this.add.group();
             this._cloudGroup = this.add.group();
             this._girlGroup = this.add.group();
 
             this._backgroundGroup.z = 0;
             this._cloudGroup.z = 1;
-            this._girlGroup.z = 2;
+            this._logosGroup.z = 2;
+            this._girlGroup.z = 3;
 
             this.game.world.sort();
 
             this._backgroundGroup.create(0, 0, "background");
+            new Demo.Sprite.Logos(this.game, this._logosGroup);
             new Demo.Sprite.Girl(170, 200, this.game, this._girlGroup);
 
             this._createCloud();

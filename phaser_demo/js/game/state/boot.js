@@ -15,7 +15,7 @@
         $extends: Phaser.State,
 
         preload: function () {
-            this.load.image("preloadBar", "asset/sprite/preload_bar.png");
+            this.load.image("preloadbar", "asset/sprite/preloadbar.png");
         },
 
         create: function () {

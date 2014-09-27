@@ -18,13 +18,17 @@
 
         preload: function () {
             //  Set-up our preloader sprite
-            this._preloadBar = this.add.sprite(this.world.centerX, this.world.centerY, "preloadBar");
+            this._preloadBar = this.add.sprite(this.world.centerX, this.world.centerY, "preloadbar");
             this._preloadBar.anchor.set(0.5);
             this.load.setPreloadSprite(this._preloadBar);
 
             //  Load our actual games assets
             this.load.image("girl", "asset/sprite/girl.png");
             this.load.image("cloud", "asset/sprite/cloud.png");
+            this.load.image("alien", "asset/sprite/alien.png");
+            this.load.image("jslogo", "asset/sprite/jslogo.png");
+            this.load.image("phaser", "asset/sprite/phaser.png");
+            this.load.image("raster", "asset/sprite/raster.png");
             this.load.image("background", "asset/sprite/background.png");
             this.load.audio("music", ["asset/audio/music.mp3", "asset/audio/music.ogg"], true);
         },

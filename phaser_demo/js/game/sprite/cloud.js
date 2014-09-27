@@ -21,8 +21,13 @@
             var y = game.rnd.integerInRange(20, game.world.height - 120);
             this.$super(game, x, y, "cloud", 0);
             this._speed += game.rnd.integerInRange(0, 5000);
-            this.scale.set(0.5);
             this.alpha = 0.5;
+
+            if (game.rnd.integerInRange(1, 100) >= 90) {
+                this.loadTexture("alien");
+                this._speed = 7500;
+                this.alpha = 1;
+            }
 
             if (typeof group !== "undefined") {
                 group.add(this);
