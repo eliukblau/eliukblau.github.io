@@ -37,7 +37,7 @@
 
             this._backgroundGroup.create(0, 0, "background");
             new Demo.Sprite.Logos(this.game, this._logosGroup);
-            new Demo.Sprite.Girl(170, 200, this.game, this._girlGroup);
+            new Demo.Sprite.Girl(this.game, this._girlGroup);
 
             this._createCloud();
             this.game.time.events.loop(2500, this._createCloud, this);
