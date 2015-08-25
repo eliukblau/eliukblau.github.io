@@ -14,7 +14,7 @@ $(document).ready(function() {
     });
 
     $('#main-input').keypress(function(e){
-        if (event.which == 13 || event.keyCode == 13) {
+        if (e.which == 13 || e.keyCode == 13) {
             e.preventDefault();
 
             var txt = $(this).val().trim();
