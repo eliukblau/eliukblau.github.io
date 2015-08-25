@@ -1,0 +1,91 @@
+.main-input {
+  /* border: 1px solid #FFFF00; */
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding: 0px 1rem 0px 1rem;
+}
+.main-input input {
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  border: 2px solid #B39DDB;
+  border-radius: 3px;
+  outline: none;
+  color: #66CCFF; /* #7E57C2 */
+  background: transparent;
+}
+.main-input input::-webkit-input-placeholder {
+  color: #B39DDB;
+}
+.main-input input::-moz-placeholder {
+  color: #B39DDB;
+}
+.main-input input:-moz-placeholder {   /* Older versions of Firefox */
+  color: #B39DDB;
+}
+.main-input input:-ms-input-placeholder { 
+  color: #B39DDB;
+}
+.main-input input:focus {
+  border-color: #66CCFF; /* #5E35B1 */
+  background-color: rgba(255, 255, 255, 0.05);
+  -moz-animation: go 0.2s ease-out;
+  -webkit-animation: go 0.2s ease-out;
+  animation: go 0.2s ease-out;
+}
+
+@-moz-keyframes go {
+  0% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -moz-transform: scale(1.01);
+    transform: scale(1.01);
+  }
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes go {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes go {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -moz-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
