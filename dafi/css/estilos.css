@@ -1,0 +1,130 @@
+body {
+	background-color: #C0DFFD;
+	font-family: Calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+	font-style: normal;
+	color: #003366;
+	text-align: justify;
+	margin: 0px;
+}
+p {
+	margin: 0px;
+}
+pre {
+	font-family: Consolas, "Courier New", Courier, monospace;
+	font-size: 10pt;
+	color: #660000;
+	background-color: #FFFFCC;
+	text-align: left;
+	border: 1px dashed #660000;
+	font-style: normal;
+	font-weight: normal;
+	padding: 24px;
+	margin-top: 0px;
+	margin-right: 24px;
+	margin-bottom: 0px;
+	margin-left: 24px;
+}
+ul,ol {
+	color: #990000;
+	font-weight: bold;
+	font-size: 12pt;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+blockquote {
+	background-color: #EAF5FF;
+	padding: 12px;
+	margin: 0px;
+}
+blockquote a:hover {
+	text-decoration: underline;
+}
+a:hover {
+	background-color: #EAF5FF;
+}
+a:link {
+	color: #6600CC;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:active {
+	color: #9900FF;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:visited {
+	color: #6600CC;
+	text-decoration: none;
+	font-weight: bold;
+}
+.Titulo {
+	font-family: Calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24pt;
+	font-weight: bold;
+	color: #3366CC;
+	text-align: left;
+	font-style: normal;
+	margin: 0px;
+}
+.SubTitulo {
+	font-family: Calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18pt;
+	font-weight: bold;
+	color: #3366CC;
+	text-align: left;
+	font-style: italic;
+	margin: 0px;
+}
+.Rutina {
+	font-family: Consolas, "Courier New", Courier, monospace;
+	font-size: 14pt;
+	color: #660000;
+	background-color: #FFFFCC;
+	font-style: normal;
+	font-weight: bold;
+	border: 1px dashed #660000;
+	padding: 1px;
+}
+.Codigo {
+	font-family: Consolas, "Courier New", Courier, monospace;
+	font-size: 12pt;
+	color: #660000;
+	background-color: #FFFFCC;
+	font-style: normal;
+	font-weight: normal;
+}
+.BordesDivisorVerde {
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #003366;
+	border-right-color: #003366;
+	border-bottom-color: #003366;
+	border-left-color: #003366;
+}
+#MenuSuperior {
+	color: #003366;
+	font-family: Calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	text-align: left;
+	}
+#MenuSuperior a:link {
+	color: #003366;
+	background-color: #CCFF99;
+}
+#MenuSuperior a:hover {
+	text-decoration: underline;
+}
+#MenuSuperior a:visited {
+	color: #003366;
+	background-color: #CCFF99;
+}
